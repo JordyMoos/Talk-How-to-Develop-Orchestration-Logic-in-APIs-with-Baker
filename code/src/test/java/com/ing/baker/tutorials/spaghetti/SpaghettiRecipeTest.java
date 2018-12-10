@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableList;
 import com.ing.baker.compiler.RecipeCompiler;
 import com.ing.baker.il.CompiledRecipe;
 import com.ing.baker.recipe.javadsl.Recipe;
+import com.ing.baker.runtime.java_api.EventList;
 import com.ing.baker.runtime.java_api.JBaker;
 import com.ing.baker.tutorials.spaghetti.interactions.*;
 import com.ing.baker.tutorials.spaghetti.interactions.events.BoilPastaEvents.BoiledPasta;
@@ -72,7 +73,7 @@ public class SpaghettiRecipeTest {
     private final int mincedMeat = 1;
     private final int pasta = 1;
     private final int tomatoPaste = 1;
-    private final int wine = 1;
+    private final int wine = 100;
     private final int herbs = 1;
 
     private final String knife = "Very sharp knife";
@@ -154,6 +155,15 @@ public class SpaghettiRecipeTest {
         verify(boilPastaMock).apply(cookingPod, pasta);
         verify(chopCarrotMock).apply(carrot, knife);
         verify(serveSpaghettiMock, times(1)).apply(alDentePasta, ragu);
+
+        // You can check which events happened
+        EventList events = baker.getEvents(processId);
+        Assert.assertTrue(events.hasEventOccurred(HappyCustomer.class));
+
+        // Get all ingredients that are accumulated for a process instance
+        Map<String, Value> ingredients = baker.getIngredients(processId);
+        int wineIngredient = ingredients.get("wine").as(int.class);
+        Assert.assertEquals(wine, wineIngredient);
     }
 
     private void setupMocks() throws Exception {

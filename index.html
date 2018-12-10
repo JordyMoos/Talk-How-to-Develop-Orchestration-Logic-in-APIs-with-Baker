@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Adding a bit of static type checking to a world of Web Components</title>
+		<title>How to Develop Orchestration Logic in APIs with Baker</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/solarized.css">
@@ -32,12 +32,215 @@
 		<div class="reveal">
 			<div class="slides">
 				<!-- https://www.smulweb.nl/recepten/1153980/De-enige-echte-spaghetti-bolognese-ragu-bolognese -->
-				<section data-background-image="img/bake.jpg">
+				<section data-background-image="img/Hartford-Baking-Co-19.jpg">
 					<aside class="notes">
-						Hello folks!<br>
-						Thank you all for being here
+						Hello folks! Thank you all for being here.
 					</aside>
 				</section>
+
+				<section>
+                    <h1>How to Develop Orchestration Logic in APIs with Baker</h1>
+					<aside class="notes">
+                        Welcome to my talk "How to Develop Orchestration Logic in APIs with Baker".<br>
+                        The API part is actually irrelevant. You can use Baker for lots of Orchestration Logic for your processes.<br>
+					</aside>
+				</section>
+
+				<section>
+                    <img src="./img/youtubeflowchart_final_big.jpg" class="stretch plain">
+					<aside class="notes">
+                        You could orchestrate this youtube flow chart in Baker if you want to.<br>
+                        But before we start with baker, lets be polite and introduce.
+					</aside>
+				</section>
+
+                <section>
+                    <img src="./img/jordy-moos.png" class="plain">
+                    <h2>Jordy Moos</h2>
+                    <aside class="notes">
+                        A little about me.<br>
+                        I'm Jordy Moos
+					</aside>
+				</section>
+
+                <section>
+                    <img src="./img/programming-since-the-age-of-12.png" class="stretch plain">
+                    <aside class="notes">
+                        I have been programming since about the age of 12.<br>
+                        Well messing around with stuff on the computer.<br>
+                        Can not really call that programming I suppose.
+					</aside>
+				</section>
+
+                <section>
+                    <img src="./img/super-deal.png" class="stretch plain">
+                    <aside class="notes">
+                        Every now and then I get a bit bored and make something weird like this Action Housing addon for the game Elder Scrolls Online.<br>
+					</aside>
+				</section>
+
+                <section data-background-image="./img/elder-scrolls-online-rich.jpg">
+                    <aside class="notes">
+                        Which made me pretty rich which is nice.<br>
+                        Well in-game of course.
+					</aside>
+				</section>
+
+                <section data-background-video="./img/elm-pixel-boulder-game.mp4" data-background-video-loop data-background-video-muted data-background-size="contain">
+                    <aside class="notes">
+                        And more recently I made this Boulder Dash type of game in the programming language Elm.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/elm-pixel-boulder-game-github.png" class="stretch plain">
+                    <aside class="notes">
+                        Which is also on Github.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/Open-Source-Word-Cloud.jpg" class="stretch plain">
+                    <aside class="notes">
+                        As a developer you use a lot of open source projects.<br>
+                        And I encourage people to "give software back" to the community<br>
+                        Even if its just a small piece of code. There is probably someone who can use it or learn from it.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/ing-logo.svg" class="stretch plain">
+                    <aside class="notes">
+                        That is one of the reasons why I joined ING.<br>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/baker-github.png" class="stretch plain">
+                    <aside class="notes">
+                        ING created this library named Baker which they open sourced on Github.<br>
+                        Which makes it free to be used for everyone.
+                    </aside>
+                </section>
+
+				<section>
+                    <img src="./img/apollo.jpg" class="stretch plain">
+					<aside class="notes">
+                        At ING we work in these "self containing teams" called squads.<br>
+                        And I joined the squad Apollo
+					</aside>
+				</section>
+
+				<section>
+                    <img src="./img/logo.png" class="stretch plain">
+					<aside class="notes">
+                        Which "coincidentally" has Baker as one of its responsibilities.<br>
+                        What are the odds.
+					</aside>
+				</section>
+
+				<section>
+                    <h2>Let's meet you</h2>
+					<aside class="notes">
+                        Oke that was me now let me meet you.
+					</aside>
+				</section>
+
+				<section data-background-image="./img/crowd-with-raised-up-hands-istock.jpg">
+					<aside class="notes">
+                        Please raise your hands if you would like to answer true on the questions.
+					</aside>
+				</section>
+
+				<section>
+                    <h2>Who is a programmer?</h2>
+					<aside class="notes">
+                        Who is a programmer?
+					</aside>
+				</section>
+
+				<section>
+                    <h2>Who has made an API?</h2>
+					<aside class="notes">
+                        Who has made an API?<br>
+                        Event something simple, like to display the current time?
+					</aside>
+				</section>
+
+				<section>
+                    <h2>Who made "Multi step" API's or process?</h2>
+					<aside class="notes">
+                        Who made "multi step" API's?<br>
+                        Which I mean something that needs multiple api calls for the process to finish.<br>
+                        Like with web shops. You almost always need to fill in multiple pages,<br>
+                        Do payments blabla.<br>
+                        It's annoying for us customers. But it also was a lot of work for the developers.
+					</aside>
+				</section>
+
+                <section data-background-image="./img/spaghetti-bolognese-1080x960.jpg">
+                    <aside class="notes">
+                        Who can make Spaghetti Bolognese like this one?<br>
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/crowd-with-raised-up-hands-istock.jpg">
+                    <aside class="notes">
+                        Common hands
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/spaghetti-bolognese-1080x960.jpg">
+                    <aside class="notes">
+                        Who can make Spaghetti Bolognese without looking at a recipe.<br>
+                        Just out of your head.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Who wants to make Spaghetti Bolognese for me?</h2>
+                    <aside class="notes">
+                        Who wants to make Spaghetti Bolognese for me?<br>
+                        Common no one?<br>
+                        This looks like a good moment for a selfie with the audience.<br>
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/cooking-one-woman.jpg">
+                    <aside class="notes">
+                        What I find the toughest with cookies is the ending.<br>
+                        Making sure that everything is done at the same time.<br>
+                        Which is not really hard for spaghetti, you can simmer the ragu for hours before even thinking about the pasta.<br>
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/cooking-lots-of-stuff.jpeg">
+                    <aside class="notes">
+                        But it gets tougher when more actions are required.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/cooking-chaos.png">
+                    <aside class="notes">
+                        When there are too many actions, than I'm too focused on doing "orchestration" part of cooking, figuring out when to do what.<br>
+                        Then actually focusing what I have in the pan right now.
+                    </aside>
+                </section>
+
+                <section style="font-size: 12px;">
+                    <ul style="overflow: auto;">
+                        <li>https://cdn2.hercampus.com/styles/hcxo_standard_large/s3/hero-images/2018/10/01/Hartford-Baking-Co-19.jpg</li>
+                        <li>http://www.karenkavett.com/blogp/youtubeflowchart_final_big.jpg</li>
+                        <li>https://esosslfiles-a.akamaihd.net/cms/2016/01/3973b3075e27bbdf6731462824952b6b.jpg</li>
+                        <li>https://mtutriangle.org/assets/img/posts/Open-Source-Word-Cloud.jpg</li>
+                        <li>https://www.nasa.gov/sites/default/files/thumbnails/image/s65-55202.jpg</li>
+                        <li>https://www.parliament.nz/media/2978/crowd-with-raised-up-hands-istock.jpg</li>
+                        <li>https://www.thuisbezorgd.nl/foodwiki/uploads/2017/12/spaghetti-bolognese-1080x960.jpg</li>
+                        <li>https://cdn-image.realsimple.com/sites/default/files/styles/marquee_large_2x/public/1522180417/cooking-one-woman.jpg?itok=q32BfZyd</li>
+                        <li>https://www.yesmagazine.org/issues/affordable-housing/cooking-stirs-the-pot-for-social-change-20180627/sioux-chef-cooking.jpg/image</li>
+                        <li>https://www.brettfalcon.com/Portfolio/Conceptual/2/caption</li>
+                    </ul>
+                </section>
 
 			</div>
 		</div>
