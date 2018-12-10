@@ -1,0 +1,80 @@
+digraph {
+	node [fontcolor = white, fontsize = 22, fontname = "ING Me"]
+	pad = 0.2
+	knife -> ChopCarrot
+	knife -> ChopOnion
+	HappyCustomer [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	tomatoPaste -> CreateRagu
+	choppedOnion -> FryVegetables
+	CreateRagu [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	friedMeatAndVegetables -> CreateRagu
+	ChopCarrot [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	ragu -> ServeSpaghetti
+	onion -> ChopOnion
+	ChopOnion [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	friedVegetables [shape = circle, color = "#FF6200", style = filled]
+	ShoppedGroceries -> mincedMeat
+	cookingPod [shape = circle, color = "#FF6200", style = filled]
+	herbs [shape = circle, color = "#FF6200", style = filled]
+	pasta [shape = circle, color = "#FF6200", style = filled]
+	ShoppedGroceries [shape = diamond, margin = 0.3, fontcolor = black, style = "rounded, filled", penwidth = 2, color = "#767676", fillcolor = "#D5D5D5"]
+	GatheredKitchenware -> cookingPod
+	MeatFried [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	fryingPan -> FryMeat
+	onion [shape = circle, color = "#FF6200", style = filled]
+	VegetablesFried [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	BoilPasta [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	CreateRagu -> RaguCreated
+	FryMeat -> MeatFried
+	knife [shape = circle, color = "#FF6200", style = filled]
+	ServeSpaghetti [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	RaguCreated [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	ServeSpaghetti -> HappyCustomer
+	ShoppedGroceries -> herbs
+	ServeSpaghetti -> SadCustomer
+	wine -> CreateRagu
+	ShoppedGroceries -> carrot
+	fryingPan [shape = circle, color = "#FF6200", style = filled]
+	alDentePasta -> ServeSpaghetti
+	CarrotChopped -> choppedCarrot
+	mincedMeat -> FryMeat
+	friedVegetables -> FryMeat
+	BoiledPasta [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	ShoppedGroceries -> onion
+	GatheredKitchenware -> fryingPan
+	fryingPan -> CreateRagu
+	ShoppedGroceries -> wine
+	ChopCarrot -> CarrotChopped
+	mincedMeat [shape = circle, color = "#FF6200", style = filled]
+	FryVegetables -> VegetablesFried
+	OnionChopped [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	fryingPan -> FryVegetables
+	cookingPod -> BoilPasta
+	ChopOnion -> OnionChopped
+	MeatFried -> friedMeatAndVegetables
+	ragu [shape = circle, color = "#FF6200", style = filled]
+	CarrotChopped [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	FryMeat [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	VegetablesFried -> friedVegetables
+	alDentePasta [shape = circle, color = "#FF6200", style = filled]
+	FryVegetables [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	BoilPasta -> BoiledPasta
+	BoiledPasta -> alDentePasta
+	tomatoPaste [shape = circle, color = "#FF6200", style = filled]
+	SadCustomer [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	OnionChopped -> choppedOnion
+	herbs -> CreateRagu
+	choppedOnion [shape = circle, color = "#FF6200", style = filled]
+	choppedCarrot [shape = circle, color = "#FF6200", style = filled]
+	wine [shape = circle, color = "#FF6200", style = filled]
+	GatheredKitchenware -> knife
+	choppedCarrot -> FryVegetables
+	ShoppedGroceries -> pasta
+	GatheredKitchenware [shape = diamond, margin = 0.3, fontcolor = black, style = "rounded, filled", penwidth = 2, color = "#767676", fillcolor = "#D5D5D5"]
+	RaguCreated -> ragu
+	carrot -> ChopCarrot
+	carrot [shape = circle, color = "#FF6200", style = filled]
+	ShoppedGroceries -> tomatoPaste
+	pasta -> BoilPasta
+	friedMeatAndVegetables [shape = circle, color = "#FF6200", style = filled]
+}
