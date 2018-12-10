@@ -115,6 +115,7 @@ public class SpaghettiRecipeTest {
         CompiledRecipe compiledRecipe = RecipeCompiler.compileRecipe(recipe);
         String visualRecipe = compiledRecipe.getRecipeVisualization();
         saveVisualizationAsSvg(visualRecipe);
+        System.out.println("\n\n" + visualRecipe + "\n\n");
     }
 
     @Test

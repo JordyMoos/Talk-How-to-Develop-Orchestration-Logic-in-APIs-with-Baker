@@ -1,0 +1,42 @@
+digraph {
+	node [fontcolor = white, fontsize = 22, fontname = "ING Me"]
+	pad = 0.2
+
+	GatheredKitchenware [shape = diamond, margin = 0.3, fontcolor = black, style = "rounded, filled", penwidth = 2, color = "#767676", fillcolor = "#D5D5D5"]
+	ShoppedGroceries [shape = diamond, margin = 0.3, fontcolor = black, style = "rounded, filled", penwidth = 2, color = "#767676", fillcolor = "#D5D5D5"]
+
+	ChopCarrot [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	ChopOnion [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	BoilPasta [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	CreateRagu [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	FryVegetables [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	FryMeat [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	ServeSpaghetti [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+
+	HappyCustomer [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+	SadCustomer [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
+
+    GatheredKitchenware -> ChopCarrot
+    GatheredKitchenware -> ChopOnion
+    GatheredKitchenware -> BoilPasta
+
+    ShoppedGroceries -> ChopCarrot
+    ShoppedGroceries -> ChopOnion
+    ShoppedGroceries -> BoilPasta
+
+    GatheredKitchenware -> FryVegetables
+    ChopCarrot -> FryVegetables
+    ChopOnion -> FryVegetables
+
+    ShoppedGroceries -> FryMeat
+    FryVegetables -> FryMeat
+
+    ShoppedGroceries -> CreateRagu
+    FryMeat -> CreateRagu
+
+    BoilPasta -> ServeSpaghetti
+    CreateRagu -> ServeSpaghetti
+
+    ServeSpaghetti -> HappyCustomer
+    ServeSpaghetti -> SadCustomer
+}
