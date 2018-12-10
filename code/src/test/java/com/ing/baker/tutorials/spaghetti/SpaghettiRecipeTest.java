@@ -1,4 +1,4 @@
-package com.ing.baker.tutorials;
+package com.ing.baker.tutorials.spaghetti;
 
 import akka.actor.ActorSystem;
 import com.google.common.collect.ImmutableList;
@@ -6,15 +6,16 @@ import com.ing.baker.compiler.RecipeCompiler;
 import com.ing.baker.il.CompiledRecipe;
 import com.ing.baker.recipe.javadsl.Recipe;
 import com.ing.baker.runtime.java_api.JBaker;
-import com.ing.baker.tutorials.interactions.ManufactureGoods;
-import com.ing.baker.tutorials.interactions.SendInvoice;
-import com.ing.baker.tutorials.interactions.ShipGoods;
-import com.ing.baker.tutorials.interactions.ValidateOrder;
-import com.ing.baker.tutorials.interactions.events.ManufactureGoodsEvents.GoodsManufactured;
-import com.ing.baker.tutorials.interactions.events.SendInvoiceEvents.InvoiceSent;
-import com.ing.baker.tutorials.interactions.events.SensoryEvents;
-import com.ing.baker.tutorials.interactions.events.ShipGoodsEvents.GoodsShipped;
-import com.ing.baker.tutorials.interactions.events.ValidateOrderEvents.OrderValid;
+import com.ing.baker.tutorials.spaghetti.interactions.*;
+import com.ing.baker.tutorials.spaghetti.interactions.events.BoilPastaEvents.BoiledPasta;
+import com.ing.baker.tutorials.spaghetti.interactions.events.ChopCarrotEvents.CarrotChopped;
+import com.ing.baker.tutorials.spaghetti.interactions.events.ChopOnionEvents.OnionChopped;
+import com.ing.baker.tutorials.spaghetti.interactions.events.CreateRaguEvents.RaguCreated;
+import com.ing.baker.tutorials.spaghetti.interactions.events.FryMeatEvents.MeatFried;
+import com.ing.baker.tutorials.spaghetti.interactions.events.FryVegetablesEvents.VegetablesFried;
+import com.ing.baker.tutorials.spaghetti.interactions.events.GatheredKitchenware;
+import com.ing.baker.tutorials.spaghetti.interactions.events.ServeSpaghettiEvents.HappyCustomer;
+import com.ing.baker.tutorials.spaghetti.interactions.events.ShoppedGroceries;
 import com.ing.baker.types.Value;
 import guru.nidi.graphviz.engine.Format;
 import guru.nidi.graphviz.engine.Graphviz;
@@ -40,35 +41,57 @@ import java.util.concurrent.TimeoutException;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
-public class WebShopRecipeTest {
-    private final Recipe recipe = WebShopRecipe.getRecipe();
+public class SpaghettiRecipeTest {
+    private final Recipe recipe = SpaghettiRecipe.getRecipe();
 
-    private final ValidateOrder mockValidateOrder = mock(ValidateOrder.class);
-    private final ManufactureGoods mockManufactureGoods = mock(ManufactureGoods.class);
-    private final ShipGoods mockShipGoods = mock(ShipGoods.class);
-    private final SendInvoice mockSendInvoice = mock(SendInvoice.class);
+    private final BoilPasta boilPastaMock = mock(BoilPasta.class);
+    private final ChopCarrot chopCarrotMock = mock(ChopCarrot.class);
+    private final ChopOnion chopOnionMock = mock(ChopOnion.class);
+    private final CreateRagu createRaguMock = mock(CreateRagu.class);
+    private final FryMeat fryMeatMock = mock(FryMeat.class);
+    private final FryVegetables fryVegetablesMock = mock(FryVegetables.class);
+    private final ServeSpaghetti serveSpaghettiMock = mock(ServeSpaghetti.class);
 
     //Baker spins an actor system based on AKKA under the hood
-    private ActorSystem testActorSystem = ActorSystem.create("WebShop");
+    private ActorSystem testActorSystem = ActorSystem.create("Spaghetti");
     private JBaker baker = new JBaker(testActorSystem);
 
     //Baker can run multiple recipes at the same time, each recipe gets a unique recipeId
     private String recipeId;
 
     //happy flow mock data
-    private final String orderId = "ORD-123456";
-    private final String customerInfo = "John Doe, Amsterdam";
-    private final String goods = "this is the product";
+    private final int alDentePasta = 1;
+    private final int choppedCarrot = 1;
+    private final int choppedOnion = 1;
+    private final int ragu = 1;
+    private final int friedMeat = 1;
+    private final int friedVegetables = 1;
+    private final int friedMeatAndVegetables = 1;
+    private final int onion = 1;
+    private final int carrot = 1;
+    private final int mincedMeat = 1;
+    private final int pasta = 1;
+    private final int tomatoPaste = 1;
+    private final int wine = 1;
+    private final int herbs = 1;
+
+    private final String knife = "Very sharp knife";
+    private final String fryingPan = "Awesome frying pan";
+    private final String cookingPod = "Huge cooking pod";
 
     //the good thing about this is that no actual implementations are needed
     //the complete flow can be verified that it will work, speeds up the validation of orchestration logic
     private List<Object> mockImplementations = ImmutableList.<Object>of(
-            mockValidateOrder,
-            mockManufactureGoods,
-            mockShipGoods,
-            mockSendInvoice);
+            boilPastaMock,
+            chopCarrotMock,
+            chopOnionMock,
+            createRaguMock,
+            fryMeatMock,
+            fryVegetablesMock,
+            serveSpaghettiMock
+    );
 
-    public WebShopRecipeTest() {
+    public SpaghettiRecipeTest() {
         CompiledRecipe compiledRecipe = RecipeCompiler.compileRecipe(recipe);
         baker.addImplementations(mockImplementations);
         recipeId = baker.addRecipe(compiledRecipe);
@@ -123,39 +146,27 @@ public class WebShopRecipeTest {
 
         //blocks the current thread until all interactions that can be called have been executed by Baker
         //this is useful when an underlying system gives information back that must be returned in the response from the API or in unit-tests
-        baker.processEvent(processId, new SensoryEvents.CustomerInfoReceived(customerInfo));
-        verify(mockValidateOrder, never()).apply(anyString());
-        verify(mockManufactureGoods, never()).apply(anyString());
-        verify(mockShipGoods, never()).apply(anyString(), anyString());
-        verify(mockManufactureGoods, never()).apply(anyString());
-        verify(mockSendInvoice, never()).apply(anyString());
+        baker.processEvent(processId, new ShoppedGroceries(onion, carrot, mincedMeat, pasta, tomatoPaste, wine, herbs));
+        verify(serveSpaghettiMock, never()).apply(alDentePasta, ragu);
 
-        baker.processEvent(processId, new SensoryEvents.OrderPlaced(orderId));
-        verify(mockValidateOrder).apply(orderId);
-        verify(mockManufactureGoods, never()).apply(anyString());
-        verify(mockShipGoods, never()).apply(anyString(), anyString());
-        verify(mockSendInvoice, never()).apply(anyString());
-
-        baker.processEvent(processId, new SensoryEvents.PaymentMade());
-        verify(mockManufactureGoods).apply(orderId);
-        verify(mockShipGoods).apply(goods, customerInfo);
-        verify(mockSendInvoice).apply(customerInfo);
-
-        verify(mockValidateOrder, times(1)).apply(orderId);
-        verify(mockManufactureGoods, times(1)).apply(orderId);
-        verify(mockShipGoods, times(1)).apply(goods, customerInfo);
-        verify(mockSendInvoice, times(1)).apply(customerInfo);
+        baker.processEvent(processId, new GatheredKitchenware(knife, fryingPan, cookingPod));
+        verify(boilPastaMock).apply(cookingPod, pasta);
+        verify(chopCarrotMock).apply(carrot, knife);
+        verify(serveSpaghettiMock, times(1)).apply(alDentePasta, ragu);
     }
 
     private void setupMocks() throws Exception {
-        when(mockValidateOrder.apply(orderId)).thenReturn(new OrderValid());
-        when(mockManufactureGoods.apply(orderId)).thenReturn(new GoodsManufactured(goods));
-        when(mockShipGoods.apply(goods, customerInfo)).thenReturn(new GoodsShipped());
-        when(mockSendInvoice.apply(customerInfo)).thenReturn(new InvoiceSent());
+        when(boilPastaMock.apply(cookingPod, pasta)).thenReturn(new BoiledPasta(alDentePasta));
+        when(chopCarrotMock.apply(carrot, knife)).thenReturn(new CarrotChopped(choppedCarrot));
+        when(chopOnionMock.apply(onion, knife)).thenReturn(new OnionChopped(choppedOnion));
+        when(createRaguMock.apply(fryingPan, friedMeatAndVegetables, tomatoPaste, wine, herbs)).thenReturn(new RaguCreated(ragu));
+        when(fryMeatMock.apply(fryingPan, mincedMeat, friedVegetables)).thenReturn(new MeatFried(friedMeat));
+        when(fryVegetablesMock.apply(fryingPan, carrot, onion)).thenReturn(new VegetablesFried(friedVegetables));
+        when(serveSpaghettiMock.apply(alDentePasta, ragu)).thenReturn(new HappyCustomer());
     }
 
     private void saveVisualizationAsSvg(final String dotGraph) throws IOException {
-        final File file = new File("./target/" + "web-shop-recipe.svg");
+        final File file = new File("./target/" + "spaghetti-recipe.svg");
         final MutableGraph g = Parser.read(dotGraph);
         //try Format.SVG for a vector format, better for printed recipes
         Graphviz.fromGraph(g).render(Format.SVG).toFile(file);

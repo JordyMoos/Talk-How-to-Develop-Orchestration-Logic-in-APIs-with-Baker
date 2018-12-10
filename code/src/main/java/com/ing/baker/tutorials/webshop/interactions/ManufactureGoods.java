@@ -1,10 +1,10 @@
-package com.ing.baker.tutorials.interactions;
+package com.ing.baker.tutorials.webshop.interactions;
 
 import com.ing.baker.recipe.annotations.FiresEvent;
 import com.ing.baker.recipe.annotations.RequiresIngredient;
 import com.ing.baker.recipe.javadsl.Interaction;
-import com.ing.baker.tutorials.interactions.events.ManufactureGoodsEvents;
-import com.ing.baker.tutorials.interactions.events.ManufactureGoodsEvents.GoodsManufactured;
+import com.ing.baker.tutorials.webshop.interactions.events.ManufactureGoodsEvents;
+import com.ing.baker.tutorials.webshop.interactions.events.ManufactureGoodsEvents.GoodsManufactured;
 
 public interface ManufactureGoods extends Interaction {
 

@@ -1,7 +1,7 @@
-package com.ing.baker.tutorials.interactions;
+package com.ing.baker.tutorials.webshop.interactions;
 
-import com.ing.baker.tutorials.interactions.events.ValidateOrderEvents;
-import com.ing.baker.tutorials.interactions.events.ValidateOrderEvents.ValidateOrderOutcome;
+import com.ing.baker.tutorials.webshop.interactions.events.ValidateOrderEvents;
+import com.ing.baker.tutorials.webshop.interactions.events.ValidateOrderEvents.ValidateOrderOutcome;
 
 public class ValidateOrderImpl implements ValidateOrder {
     @Override

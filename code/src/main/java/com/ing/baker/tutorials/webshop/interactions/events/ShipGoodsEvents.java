@@ -1,4 +1,4 @@
-package com.ing.baker.tutorials.interactions.events;
+package com.ing.baker.tutorials.webshop.interactions.events;
 
 public class ShipGoodsEvents {
     public interface ShippingOutcome {
