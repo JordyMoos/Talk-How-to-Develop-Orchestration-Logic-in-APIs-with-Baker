@@ -1,0 +1,17 @@
+digraph {
+	node [fontcolor = white, fontsize = 22, fontname = "ING Me"]
+	pad = 0.2
+
+	ChopCarrot [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	ChopOnion [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	BoilPasta [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	CreateRagu [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	FryVegetables [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+	FryMeat [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
+
+    ChopCarrot -> FryVegetables
+    ChopOnion -> FryVegetables
+
+    FryVegetables -> FryMeat
+    FryMeat -> CreateRagu
+}
