@@ -4,6 +4,8 @@ digraph {
 
 	knife [shape = circle, color = "#FF6200", style = filled]
 	carrot [shape = circle, color = "#FF6200", style = filled]
+	choppedCarrot [shape = circle, color = "#FF6200", style = filled]
+	waste [shape = circle, color = "#FF6200", style = filled]
 
 	ChopCarrot [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
 
@@ -13,4 +15,7 @@ digraph {
 	carrot -> ChopCarrot
 
 	ChopCarrot -> CarrotChopped
+
+	CarrotChopped -> choppedCarrot
+	CarrotChopped -> waste
 }

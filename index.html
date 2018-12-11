@@ -419,13 +419,13 @@
 
                 <section data-background-image="./img/spaghetti.jpg">
                     <aside class="notes">
-                        We end up with spaghetti. I do not mean the final product we created.
+                        We end up with spaghetti. I do not mean the final product we created.<br>
+                        I'm talking about the code.
                     </aside>
                 </section>
 
                 <section data-background-image="./img/we-are-getting-spaghetti.png">
                     <aside class="notes">
-                        I'm talking about the code.<br>
                         Our code is so tangled because it exploded in size so quickly.
                     </aside>
                 </section>
@@ -476,6 +476,7 @@
                     <aside class="notes">
                         That way an Interaction is a really simple problem.<br>
                         Like this piece of code.<br>
+                        You just have to focus on this problem.<br>
                         A challenge for everyone to solve.
                     </aside>
                 </section>
@@ -489,9 +490,10 @@
                     </aside>
                 </section>
 
-                <section data-background-image="./img/applaus.png">
+                <section data-background-image="./img/applause.png">
                     <aside class="notes">
-                        I had nothing to do with it. Apollo made it already before I joined.
+                        I had nothing to do with it. Apollo made it already before I joined.<br>
+                        But I'm sure they will like the applause when they see the video.
                     </aside>
                 </section>
 
@@ -502,6 +504,109 @@
                         No need to go to the office<br>
                         To create that process they had to connect to lots of services which was a recipe for disaster.<br>
                         That is why they made Baker.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Baker</h2>
+                    <ul>
+                        <li class="fragment">Idea</li>
+                        <li class="fragment">Why</li>
+                        <li class="fragment">Interactions</li>
+                        <li class="fragment">Ingredients</li>
+                        <li class="fragment">Events</li>
+                    </ul>
+                    <aside class="notes">
+                        Now it looks like I have not really talked about Baker yet. But I actually have.<br>
+                        If you understand the idea, the need for it. And terms like Interaction, Ingredients and Events<br>
+                        Then you are actually almost there.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-01.png" class="stretch plain">
+                    <aside class="notes">
+                        Let's again take a look at the ChopCarrot Interaction<br>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-02.png" class="stretch plain">
+                    <aside class="notes">
+                        The only difference with Baker compared to the story so far, is that Baker handles based on Events.<br>
+                        An Interaction will not return an Ingredient, but it will return an Event.<br>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-03.png" class="stretch plain">
+                    <aside class="notes">
+                        And that Event can hold Ingredients. Like normal events in Java van also hold data.<br>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-04.png" class="stretch plain">
+                    <aside class="notes">
+                        And again as in normal Java, an event is not limited to just one Ingredient
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-05.png" class="stretch plain">
+                    <aside class="notes">
+                        Its also possible for Interactions to return different Events.<br>
+                        Like we could have cut our finger and abort the whole cooking instead of providing chopped carrots<br>
+                        Programming based on Events is handy because it promotes loose coupling of the code.<br>
+                        You do not really care who produced and Event. You just want to do a certain Interaction based on certain Events
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/let-the-coding-begin.jpg">
+                    <aside class="notes">
+                        Let the real Baker coding begin.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/sbt-dependencies.png" class="stretch plain">
+                    <aside class="notes">
+                        First you will need to add baker to project. Which you can do via SBT
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/mvn-dependencies.png" class="stretch plain">
+                    <aside class="notes">
+                        Or mvn.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/baker-documentation.png" class="stretch plain">
+                    https://ing-bank.github.io/baker/getting-started
+                    <aside class="notes">
+                        Which is something no one is ever going to remember.<br>
+                        So I will just link to our documentation website at the end of the slides
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/interaction-code.png" class="stretch plain">
+                    <aside class="notes">
+                        For every Interaction you will need to make its Interface.<br>
+                        There you will tell which Ingredients are needed for the Interaction<br>
+                        And which Events they can return.<br>
+                        CarrotChopped and FingerCut are both instances of ChopCarrotOutcome
+                    </aside>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>https://ing-bank.github.io/baker/getting-started</li>
+                    </ul>
+                    <aside class="notes">
+
                     </aside>
                 </section>
 
@@ -529,6 +634,7 @@
                         <li>https://static.parade.com/wp-content/uploads/2017/02/ThinkFaster-FTR.jpg</li>
                         <li>https://herbertvanhoogdalem.nl/wp-content/uploads/2012/07/Schermafbeelding-2018-10-08-om-12.13.14.png</li>
                         <li>https://www.ing.nl/media/ING_BB_Mobielopenen_tcm162-144525.png</li>
+                        <li>https://2e8ram2s1li74atce18qz5y1-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/shutterstock_430205446-1024x673.jpg</li>
                     </ul>
                 </section>
 

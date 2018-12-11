@@ -11,4 +11,13 @@ public class ChopCarrotEvents {
     public static class CarrotChopped implements ChopCarrotOutcome {
         private int choppedCarrot;
     }
+
+    public static class FingerCut implements ChopCarrotOutcome {
+
+    }
 }
+
+
+
+
+
