@@ -1,0 +1,60 @@
+digraph {
+	node [fontcolor = white, fontsize = 22, fontname = "ING Me"]
+	pad = 0.2
+
+	friedVegetables [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	cookingPod [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	herbs [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	pasta [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	onion [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	knife [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	fryingPan [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	mincedMeat [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	ragu [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	alDentePasta [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	tomatoPaste [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	choppedOnion [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	choppedCarrot [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	wine [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	carrot [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+	friedMeatAndVegetables [shape = circle, fontcolor = "#FF6200", color = "#FF6200", style = filled]
+
+	ChopOnion [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+	ChopCarrot [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+	CreateRagu [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+	BoilPasta [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+	ServeSpaghetti [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+	FryMeat [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+	FryVegetables [shape = rect, penwidth = 2, margin = 0.5, fontcolor = "#525199", color = "#525199", style = "rounded, filled"]
+
+	HappyCustomer [shape = diamond, margin = 0.3, fontcolor = "#767676", color = "#767676", style = "rounded, filled"]
+	SadCustomer [shape = diamond, margin = 0.3, fontcolor = "#767676", color = "#767676", style = "rounded, filled"]
+
+	knife -> ChopCarrot
+	knife -> ChopOnion
+	tomatoPaste -> CreateRagu
+	choppedOnion -> FryVegetables
+	friedMeatAndVegetables -> CreateRagu
+	ragu -> ServeSpaghetti
+	onion -> ChopOnion
+	fryingPan -> FryMeat
+	CreateRagu -> ragu
+	FryMeat -> friedMeatAndVegetables
+	ServeSpaghetti -> HappyCustomer
+	ServeSpaghetti -> SadCustomer
+	wine -> CreateRagu
+	alDentePasta -> ServeSpaghetti
+	mincedMeat -> FryMeat
+	friedVegetables -> FryMeat
+	fryingPan -> CreateRagu
+	ChopCarrot -> choppedCarrot
+	FryVegetables -> friedVegetables
+	fryingPan -> FryVegetables
+	cookingPod -> BoilPasta
+	ChopOnion -> choppedOnion
+	BoilPasta -> alDentePasta
+	herbs -> CreateRagu
+	choppedCarrot -> FryVegetables
+	carrot -> ChopCarrot
+	pasta -> BoilPasta
+}

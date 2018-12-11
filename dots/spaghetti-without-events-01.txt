@@ -2,9 +2,6 @@ digraph {
 	node [fontcolor = white, fontsize = 22, fontname = "ING Me"]
 	pad = 0.2
 
-	GatheredKitchenware [shape = diamond, margin = 0.3, fontcolor = black, style = "rounded, filled", penwidth = 2, color = "#767676", fillcolor = "#D5D5D5"]
-	ShoppedGroceries [shape = diamond, margin = 0.3, fontcolor = black, style = "rounded, filled", penwidth = 2, color = "#767676", fillcolor = "#D5D5D5"]
-
 	friedVegetables [shape = circle, color = "#FF6200", style = filled]
 	cookingPod [shape = circle, color = "#FF6200", style = filled]
 	herbs [shape = circle, color = "#FF6200", style = filled]
@@ -20,6 +17,7 @@ digraph {
 	choppedCarrot [shape = circle, color = "#FF6200", style = filled]
 	wine [shape = circle, color = "#FF6200", style = filled]
 	carrot [shape = circle, color = "#FF6200", style = filled]
+	friedMeatAndVegetables [shape = circle, color = "#FF6200", style = filled]
 
 	ChopOnion [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
 	ChopCarrot [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
@@ -30,14 +28,7 @@ digraph {
 	FryVegetables [shape = rect, penwidth = 2, margin = 0.5, color = "#525199", style = "rounded, filled"]
 
 	HappyCustomer [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	MeatFried [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	VegetablesFried [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	RaguCreated [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	BoiledPasta [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	OnionChopped [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	CarrotChopped [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
 	SadCustomer [shape = diamond, margin = 0.3, color = "#767676", style = "rounded, filled"]
-	friedMeatAndVegetables [shape = circle, color = "#FF6200", style = filled]
 
 	knife -> ChopCarrot
 	knife -> ChopOnion
@@ -46,40 +37,24 @@ digraph {
 	friedMeatAndVegetables -> CreateRagu
 	ragu -> ServeSpaghetti
 	onion -> ChopOnion
-	ShoppedGroceries -> mincedMeat
-	GatheredKitchenware -> cookingPod
 	fryingPan -> FryMeat
-	CreateRagu -> RaguCreated
-	FryMeat -> MeatFried
+	CreateRagu -> ragu
+	FryMeat -> friedMeatAndVegetables
 	ServeSpaghetti -> HappyCustomer
-	ShoppedGroceries -> herbs
 	ServeSpaghetti -> SadCustomer
 	wine -> CreateRagu
-	ShoppedGroceries -> carrot
 	alDentePasta -> ServeSpaghetti
-	CarrotChopped -> choppedCarrot
 	mincedMeat -> FryMeat
 	friedVegetables -> FryMeat
-	ShoppedGroceries -> onion
-	GatheredKitchenware -> fryingPan
 	fryingPan -> CreateRagu
-	ShoppedGroceries -> wine
-	ChopCarrot -> CarrotChopped
-	FryVegetables -> VegetablesFried
+	ChopCarrot -> choppedCarrot
+	FryVegetables -> friedVegetables
 	fryingPan -> FryVegetables
 	cookingPod -> BoilPasta
-	ChopOnion -> OnionChopped
-	MeatFried -> friedMeatAndVegetables
-	VegetablesFried -> friedVegetables
-	BoilPasta -> BoiledPasta
-	BoiledPasta -> alDentePasta
-	OnionChopped -> choppedOnion
+	ChopOnion -> choppedOnion
+	BoilPasta -> alDentePasta
 	herbs -> CreateRagu
-	GatheredKitchenware -> knife
 	choppedCarrot -> FryVegetables
-	ShoppedGroceries -> pasta
-	RaguCreated -> ragu
 	carrot -> ChopCarrot
-	ShoppedGroceries -> tomatoPaste
 	pasta -> BoilPasta
 }

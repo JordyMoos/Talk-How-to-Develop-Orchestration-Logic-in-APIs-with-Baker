@@ -341,11 +341,167 @@
                 </section>
 
                 <section>
+                    <h2>Ingredients</h2>
+                    <img src="./img/chopped-carrot-01.png" class="stretch plain">
+                    <aside class="notes">
+                        Let's call the data needed for our Interactions, "Ingredients".<br>
+                        And for now our "Interactions" also return Ingredients.<br>
+                        Refresh: Interaction is the blue square, Data which is needed by the Interaction we are going to call Ingredients<br>
+                        We need to stick to our cooking company right?
+                    </aside>
+                </section>
+
+                <section>
                     <img src="./img/chopped-carrot-code-01.png" class="stretch plain">
                     <aside class="notes">
                         And to reflect. Our diagram represents some piece of code.<br>
                         Like this `ChopCarrot` class<br>
                         We are getting towards the less diagram more code part of the talk.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/spaghetti-with-ingredients-01.png" class="stretch plain">
+                    <aside class="notes">
+                        Setting the required Ingredients for all our Interactions with give us a process flow like this.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/tiny.gif" class="stretch plain">
+                    <aside class="notes">
+                        The text is getting tiny. But the text is also getting irrelevant.<br>
+                        Lets remove the text to focus more on the process in general
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/spaghetti-with-ingredients-02.png" class="stretch plain">
+                    <aside class="notes">
+                        The blue squares are Interactions, things that we need to do.<br>
+                        They might require some Ingredients which are displayed as orange circles.<br>
+                        They might also produce orange circles (for now) which then might be required by other Interactions
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/it-works.gif" class="stretch plain">
+                    <aside class="notes">
+                        We are totally happy that we are able to create Spaghetti Bolognese as a process<br>
+                        We even outdid ourselves and did most of the code in parallel where possible<br>
+                        It's time to demo our awesome spaghetti process to the boss
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/demo-boss.jpg">
+                    <aside class="notes">
+                        It's time to demo our awesome spaghetti process to the boss<br>
+                        And he is not so happy, because we understood him wrong.<br>
+                        Our process does not start with Ingredients like carrots, onions and pasta<br>
+                        We are going to make all of that ourselves too!
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/mcdonalds.jpg">
+                    <aside class="notes">
+                        Our virtual spaghetti company is like MC Donalds.<br>
+                        It's going to own it all, it are going to grow Wheat, we are going to make flour out of it.<br>
+                        We going to add our created eggs and our own water to make it pasta
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/we-are-getting-spaghetti.png">
+                    <aside class="notes">
+                        Long story short. Our process will look something like this.<br>
+                        It's actually a partial image, but I could not get it to fit.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/spaghetti.jpg">
+                    <aside class="notes">
+                        We end up with spaghetti. I do not mean the final product we created.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/we-are-getting-spaghetti.png">
+                    <aside class="notes">
+                        I'm talking about the code.<br>
+                        Our code is so tangled because it exploded in size so quickly.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/demo-boss.jpg">
+                    <aside class="notes">
+                        And then the boss comes in again and says that he wants to fry the meat first instead of the vegetables.<br>
+                        An easy change like this is going to take forever now.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/senior-developer.png">
+                    <aside class="notes">
+                        No one dares to touch the code anymore, everybody is afraid they are going to break something.<br>
+                        Only the most senior develop, and with that I mean a developer that has been with the company from the beginning.<br>
+                        Who knows all the ins and outs about the codebase. Only that person dares to take the challenge and make changes.<br>
+                        It will takes hours if not days for something that could have been done in 15 minutes.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/DIFFERENT-KINDS-OF-DEVELOPERS.png">
+                    <aside class="notes">
+                        Now you have different kind of developers<br>
+                        Some that just do their thing in such a huge mess.<br>
+                        Some that leave because this is not why they become developers.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/think.jpg">
+                    <aside class="notes">
+                        And some that look at the problem and think.<br>
+                        How can we make this problem easier.<br>
+                        What if.... What if we split the Interactions and the Orchestration Logic.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-01.png" class="stretch plain">
+                    <aside class="notes">
+                        What if we can look at Interactions as just that. An Interaction.<br>
+                        The Interaction only needs to care about itself. What Ingredients does it need and provide<br>
+                        The rest should be irrelevant, something that can be abstracted away.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/chopped-carrot-code-01.png" class="stretch plain">
+                    <aside class="notes">
+                        That way an Interaction is a really simple problem.<br>
+                        Like this piece of code.<br>
+                        A challenge for everyone to solve.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Baker</h2>
+                    <img src="./img/logo.png" class="stretch plain">
+                    <aside class="notes">
+                        And that is what they did in Apollo by creating Baker.<br>
+                        They created a library that abstracts away the orchestration so you can focus on implementing the Interactions.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/applaus.png">
+                    <aside class="notes">
+                        I had nothing to do with it. Apollo made it already before I joined.
+                    </aside>
+                </section>
+
+                <section data-background-image="./img/mobile-onboarding.png">
+                    <aside class="notes">
+                        As one of the purposes of Apollo they had to make Mobile Onboarding.<br>
+                        Which is that you can become a new customer via an android phone<br>
+                        No need to go to the office<br>
+                        To create that process they had to connect to lots of services which was a recipe for disaster.<br>
+                        That is why they made Baker.
                     </aside>
                 </section>
 
@@ -364,6 +520,15 @@
                         <li>https://spinninrecords.com/media/cache/header_wide/uploads/media/page/0001/06/thumb_5325_page_ogimage.jpeg</li>
                         <li>https://www.redlions.nl/wp-content/uploads/2017/03/Just-a-friendly-reminder.png</li>
                         <li>https://industryeats.com/wp-content/uploads/2015/11/carrot-in-diced-pieces.jpg</li>
+                        <li>http://i.imgur.com/K1zhbbm.gif</li>
+                        <li>https://steemitimages.com/p/8SzwQbWfyXFcqEAwpKeHM3nTyuLgDJvVcgaZxvJSLJeWbxcmqHXEA87kbjFBLW5aeVsDvbNGvQs4HFg5gm2LjeLBLoKQwsTfqBGUaBcZkpwYEPMDJ2h?format=match&mode=fit</li>
+                        <li>https://i1.wp.com/devbasu.com/wp-content/uploads/2015/04/describe-your-ideal-boss.jpg?w=2400&ssl=1</li>
+                        <li>https://thenypost.files.wordpress.com/2015/09/mcdonalds.jpg</li>
+                        <li>https://www.techtiq.co.uk/kb/wp-content/uploads/2018/10/DIFFERENT-KINDS-OF-DEVELOPERS.png</li>
+                        <li>https://cdn.filestackcontent.com/rHXz4MARfqYkQM8odgrt</li>
+                        <li>https://static.parade.com/wp-content/uploads/2017/02/ThinkFaster-FTR.jpg</li>
+                        <li>https://herbertvanhoogdalem.nl/wp-content/uploads/2012/07/Schermafbeelding-2018-10-08-om-12.13.14.png</li>
+                        <li>https://www.ing.nl/media/ING_BB_Mobielopenen_tcm162-144525.png</li>
                     </ul>
                 </section>
 
