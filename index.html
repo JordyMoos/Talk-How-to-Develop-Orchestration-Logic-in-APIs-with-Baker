@@ -602,6 +602,118 @@
                 </section>
 
                 <section>
+                    <img src="./img/events-code.png" class="stretch plain">
+                    <aside class="notes">
+                        The Events are just standard java interfaces and classes.<br>
+                        We define an interface ChopCarrotOutcome, and two classes that implement ChopCarrotOutcome<br>
+                        CarrotChopped and FingerCut
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/recipe.png" class="stretch plain">
+                    <aside class="notes">
+                        You will be creating this simple Interaction interfaces and Events for all your Interactions<br>
+                        And then you can create what we call a Recipe, where you specify that the recipe "spaghetti"<br>
+                        consists of all these Interactions.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Sensory Events</h2>
+                    <ul>
+                        <li>Allow us to interact with our Recipe</li>
+                        <li>Event to trigger an Interaction</li>
+                        <li>Event to provide Ingredients</li>
+                    </ul>
+                    <aside class="notes">
+                        There is one thing we have not really discussed yet. And that is how to interact with our recipe.<br>
+                        Ingredients like Carrot and Knife are not available out of the blue. They need to be provided.<br>
+                        We need a way to interaction with our Recipe. To trigger and Interaction or to provide Ingredients<br>
+                        We do that via what we call "Sensory Events"
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/sensory-event.png" class="stretch plain">
+                    <aside class="notes">
+                        For our spaghetti demo I made two Sensory Events. ShoppedGroceries to provide the eatable wares.<br>
+                        And GatherKitchenware to provide us with the tools.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/recipe-02.png" class="stretch plain">
+                    <aside class="notes">
+                        You will need to specify those Sensory Events as "entry point" Events to the Recipe.<br>
+                        Now at this moment our Recipe is like the blueprint of our process.<br>
+                        It is not actually able to run anything because we only gave it Interfaces and not real implementation.<br>
+                        But these Interfaces of Interactions and Events is all Baker need to determine the order of execution.<br>
+                        To orchestrate the process.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/print-recipe.png" class="stretch plain">
+                    <aside class="notes">
+                        We could now Compile our recipe. Which will figure out how all Interactions etc are related.<br>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/dot-version.png" class="stretch plain">
+                    <aside class="notes">
+                        And then ask for a .dot representation of the recipe.
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/spaghetti-recipe.svg" class="stretch plain">
+                    <aside class="notes">
+                        Which is something that tools like Graphivz understands and can transform in this graph.<br>
+                        Now the text in there is not really relevant for the demo.<br>
+                        What is relevant is that we did not specify the order of execution.<br>
+                        Baker figures that our based on the given Interactions, Events and Ingredients.<br>
+                        Non developers can look at this graph, which is created from the official code and determine if things are not happening in order as they excepted.<br>
+                        Which means there is a fault in the thinking. Which now probably just require some changes in the recipe. And not in the big mess of orchestration code
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/implementation.png" class="stretch plain">
+                    <aside class="notes">
+                        To finish the pieces. You will be needing to create implementations of your Interactions.<br>
+                        Which is just a class that implements the Interaction interface and overwrite the apply method with the real implementation
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/initialize-baker.png" class="stretch plain">
+                    <aside class="notes">
+                        Now to actually execute your recipe. To run your process.<br>
+                        You will be needing a Baker instance<br>
+                        Which is just new JBaker for Java
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/initialize-baker-02.png" class="stretch plain">
+                    <aside class="notes">
+                        Then you can add your Implementations of your Interactions to Baker.<br>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src="./img/initialize-baker-03.png" class="stretch plain">
+                    <aside class="notes">
+                        And also compile your recipe and give that to Baker.<br>
+                        Baker should now be able to match the implementations to the recipe blueprint.<br>
+                        And will know what to execute if certain Ingredients or Events are available.<br>
+                        Baker will also give you back a recipe id which you need to use to to interact with that recipe.
+                    </aside>
+                </section>
+
+                <section>
                     <ul>
                         <li>https://ing-bank.github.io/baker/getting-started</li>
                     </ul>
